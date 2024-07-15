@@ -15,6 +15,8 @@ builder.Host.UseSerilog((context, loggerCOnfig) =>
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
+
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
