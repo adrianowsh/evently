@@ -4,6 +4,7 @@ using Evently.Common.Application.Caching;
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace Evently.Common.Infrastructure.Caching;
+
 internal sealed class CacheService(IDistributedCache cache) : ICacheService
 {
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken = default)

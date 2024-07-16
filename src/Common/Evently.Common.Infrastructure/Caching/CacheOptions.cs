@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
 namespace Evently.Common.Infrastructure.Caching;
+
 public static class CacheOptions
 {
     public static DistributedCacheEntryOptions DefaultExpiration => new()

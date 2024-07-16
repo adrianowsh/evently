@@ -28,12 +28,11 @@ public static class InfrastructureConfiguration
         IConnectionMultiplexer connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
         services.TryAddSingleton(connectionMultiplexer);
 
-        services.AddStackExchangeRedisCache(opt =>
-        {
-            opt.ConnectionMultiplexerFactory = () => Task.FromResult(connectionMultiplexer);
-        });
+        services.AddStackExchangeRedisCache(options =>
+            options.ConnectionMultiplexerFactory = () => Task.FromResult(connectionMultiplexer));
 
         services.TryAddSingleton<ICacheService, CacheService>();
+
         return services;
     }
 }
